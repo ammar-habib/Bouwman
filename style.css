@@ -1,0 +1,388 @@
+@tailwind base;
+body {
+    font-family: Montserrat;
+    @apply flex
+    flex-col justify-center items-center min-h-screen antialiased font-normal leading-normal tracking-normal text-black;
+}
+
+.page-wrapper {
+    min-height: calc(100vh - 288px);
+}
+
+.text-yellow-500 {
+    color: #f2b229;
+}
+
+.social-icon {
+    width: 37px;
+    height: 37px;
+    @apply inline-flex
+    justify-center items-center rounded-full text-white;
+}
+
+.fb-icon {
+    background-color: #1976d2;
+}
+
+.instagram-icon {
+    background-image: linear-gradient(48deg, #fcd557 14%, #f8115f 47%, #253bc4 84%);
+}
+
+.youtube-icon {
+    background-color: #ff0000;
+}
+
+.whatsup-icon {
+    background-color: #46D341;
+}
+
+.envelope-icon {
+    background-color: #FFA700;
+}
+
+.youtube-icon .fa-play {
+    position: relative;
+    right: -1px;
+}
+
+.btn {
+    @apply text-black
+    font-bold border-b-4 rounded-sm border-0 outline-none;
+}
+
+.btn-primary {
+    background-image: linear-gradient(91deg, #f2b229 0%, #f9c614 52%, #ffd800 100%);
+    box-shadow: 0 5px 1px 0 theme('colors.yellow.900');
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-image: linear-gradient(91deg, #f2b229 0%, #f9c614 52%, #ffd800 100%);
+    box-shadow: 0 5px 1px 0 #de942f;
+    @apply outline-none;
+    @apply text-black
+    font-bold border-none;
+
+}
+
+.btn {
+    @apply text-black
+    font-bold border-b-4 rounded-sm border-0 outline-none;
+}
+
+.btn-secondary {
+    background-image: linear-gradient(to right, #ff1717, #ff5f5f);
+    box-shadow: 0 3px 1px 0 theme('colors.red.700');
+    @apply text-black
+    font-bold border-none;
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-image: linear-gradient(to right, #ff1717, #ff5f5f);
+    box-shadow: 0 3px 1px 0 theme('colors.red.700');
+    @apply outline-none;
+}
+
+.btn-white {
+    background-image: linear-gradient(to right, #D5D5D5, #FFFFFF);
+    box-shadow: 0 3px 1px 0 #C1C1C1;
+}
+
+.btn-white:hover, .btn-white:focus {
+    background-image: linear-gradient(to right, #D5D5D5, #FFFFFF);
+    box-shadow: 0 3px 1px 0 #C1C1C1;
+    @apply outline-none text-black font-bold border-none;
+}
+
+.banner-section {
+    min-height: 600px;
+    z-index: 2;
+}
+
+.banner-section::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, .6), #000000);
+    z-index: -1;
+}
+
+.banner-top-section:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 22%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 22%, 0 100%);
+    z-index: -1;
+}
+
+.occasions-section {
+    min-height: 340px;
+}
+
+.occasions-section .man-pic {
+    position: absolute;
+    top: -95px;
+    right: 40px;
+    width: 160px;
+}
+
+.occasions-section .circle-content {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    right: 140px;
+    top: -90px;
+    box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.16);
+    background-color: #ffffff;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px;
+    text-align: center;
+}
+
+.card-img {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    -webket-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.input-select {
+    background: #F2F2F2 url('../img/sort-down.png') 95% center no-repeat;
+    background-size: 15px;
+}
+
+.input-select::after {
+    /*font-family: "Font Awesome 5 Free";*/
+    /*content: "\f35a";*/
+    /*display: inline-block;*/
+    /*padding-right: 3px;*/
+    /*vertical-align: middle;*/
+    /*font-weight:900;*/
+}
+
+.bottom-cute-section {
+    min-height: 200px;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 22%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 22%, 0 100%);
+}
+
+.page-water-mark {
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    bottom: 50%;
+    z-index: 2;
+    left: -185px;
+}
+
+.info-card {
+    position: relative;
+    background: #ffffff url('../img/b-mark.png') left bottom no-repeat;
+    background-size: 70px;
+}
+
+.diverse-img {
+    margin-top: 0;
+}
+
+.contant-form {
+    border-radius: 0.5rem;
+    margin-top: 0;
+    position: relative;
+    z-index: auto;
+    padding-top: 20px;
+    -webkit-clip-path: none;
+    clip-path: none;
+}
+
+.ui-slider-horizontal {
+    height: .6em;
+}
+
+.ui-widget-header {
+    /*background: #FFD886;*/
+    background: theme('colors.yellow.500');
+}
+
+.ui-widget-content {
+    background: theme('colors.gray.300');
+    border: none;
+}
+
+.ui-widget.ui-widget-content {
+    border: 1px solid theme('colors.gray.300');
+}
+
+.ui-corner-all {
+    border-radius: 6px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default {
+    border: 1px solid theme('colors.yellow.800');
+    background: theme('colors.yellow.800');
+}
+
+.ui-slider .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    outline: none !important;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -.4em;
+}
+
+.commonModal.ui-dialog-content {
+    padding: 0;
+}
+
+.common-dialog {
+    font-family: Montserrat !important;
+    padding: 0;
+    border: none !important;
+    background: transparent;
+}
+
+.dialog-header {
+    background: transparent;
+    border: none;
+    display: none;
+}
+
+.dialog-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    background: transparent;
+}
+
+.dialog-close-btn .ui-button {
+    background: transparent;
+    border: none;
+}
+
+/* The Close Button */
+.commonModal .close {
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    z-index: 2;
+}
+
+.commonModal .close:hover,
+.commonModal .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ui-widget-overlay {
+    background: rgb(0, 0, 0);
+    opacity: .8;
+    filter: Alpha(Opacity=30);
+}
+
+.slider-item {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    background: #ffffff;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.slider-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-slider .lSGallery {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+}
+
+.gallery-slider .lSGallery li {
+    position: relative;
+    width: 100px;
+    height: 45px;
+    overflow: hidden;
+    background: black;
+}
+
+.gallery-slider .lSGallery li img {
+    position: absolute;
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+}
+.financiering-wrapp {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-top-right-radius: 0;
+    position: relative;
+    z-index: 2;
+    margin-top: -60px;
+    padding-top: 70px !important;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    border-top-left-radius: 0;
+}
+.tag {
+    -webkit-clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0 100%, 0 52%, 0% 0%);
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0 100%, 0 52%, 0% 0%);
+    background: #46D341;
+    display: inline-block;
+    color: #000000;
+    width: 55px;
+    padding: 2px 8px;
+}
+@media (min-width: 1024px) {
+    .diverse-img {
+        margin-top: -130px;
+    }
+
+    .contant-form {
+        border-bottom-left-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        border-top-right-radius: 0;
+        position: relative;
+        z-index: 2;
+        margin-top: -130px;
+        padding-top: 115px !important;
+        -webkit-clip-path: polygon(0 4.5%, 100% 0, 100% 100%, 0% 100%);
+        clip-path: polygon(0 4.5%, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .gallery-slider .lSGallery {
+        margin-left: 6% !important;
+        margin-right: 6% !important;
+    }
+
+
+
+    .occasions-section .circle-content {
+        display: flex;
+    }
+}
+
+@tailwind components;
+
+@tailwind utilities;
+

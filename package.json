@@ -1,0 +1,19 @@
+{
+  "name": "bouwman",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.1",
+    "tailwindcss": "^1.4.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "postcss style.css -o assets/css/main.css",
+    "watch": "postcss style.css -o assets/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
