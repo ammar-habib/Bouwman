@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;600;700;800;900&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+
+        .slider .heading {
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider h1 {
+            text-align: center;
+            color: white;
+            font-size: 5em;
+            text-shadow: 3px 3px 0 red, 6px 6px 0 green, 9px 9px 0 blue;
+        }
+
+        .slider.container {
+            margin-top: 150px;
+            height: 10vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider .prev,
+        .slider .next {
+            height: 100%;
+            width: 10vw;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider .prev {
+            justify-content: end;
+        }
+
+        .slider .next {
+            justify-content: start;
+        }
+
+        .slider i {
+            font-size: 2em;
+            color: white;
+            opacity: 0.5;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .slider i:hover {
+            transform: scale(1.5);
+            opacity: 1;
+        }
+
+        .slider .gallery {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            /*display: flex;*/
+            /*align-items: center;*/
+        }
+
+        .slider .card {
+            position: absolute;
+            width: 40%;
+            transition: all 0.3s ease-in-out;
+            border-radius: 25% 0 25% 0;
+            overflow: hidden;
+        }
+
+        .slider img {
+            width: 100%;
+        }
+
+        .slider .position1 {
+            left: 35%;
+            z-index: 3;
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        .slider .position1:hover {
+            transform: scale(1.4);
+        }
+
+        .slider .position2 {
+            left: 50%;
+            z-index: 2;
+            transform: scale(1);
+            opacity: 0.6;
+        }
+
+        .slider .position3 {
+            left: 60%;
+            z-index: 1;
+            transform: scale(0.8);
+            opacity: 0.2;
+        }
+
+        .slider .position4 {
+            left: 10%;
+            z-index: 1;
+            transform: scale(0.8);
+            opacity: 0.2;
+        }
+
+        .slider .position5 {
+            left: 21%;
+            z-index: 2;
+            transform: scale(1);
+            opacity: 0.6;
+        }
+
+        .banner-section {
+            min-height: 815px;
+            background-position: 0 -100px;
+        }
+
+        .shelby {
+            background-image: url('https://roserevenue.com/storage/back%20middle.png');
+            background-position: right bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+
+        .femaleImg {
+            position: absolute;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            bottom: 0;
+        }
+
+        @media only screen and (max-width: 1279px) {
+            .banner-section {
+                min-height: 600px;
+                background-position: -80px -100px;
+            }
+
+        }
+
+        @media only screen and (max-width: 1023px) {
+            .banner-section {
+                min-height: 520px;
+                background-position: -120px -75px;
+            }
+
+            .femaleImg {
+                display: none;
+            }
+        }
+
+        .shelby {
+            background-position: 119% bottom;
+            background-size: 60%;
+        }
+
+        @media only screen and (max-width: 720px) {
+            .slider .prev,
+            .slider .next {
+                display: none;
+            }
+
+            .slider .container {
+                align-items: flex-start;
+            }
+
+            .slider .heading {
+                height: 20vh;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .slider h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media only screen and (max-width: 639.99px) {
+            .slider {
+                display: flex;
+                height: 257px;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-left: 60px;
+            }
+            .slider .card {
+                width: 250px;
+            }
+
+            .slider .position1 {
+                left: 5px;
+            }
+
+            .slider .position2 {
+                left: 70px;
+            }
+
+            .slider .position3 {
+                left: 110px;
+            }
+
+            .slider .position4 {
+                left: -90px;
+            }
+
+            .slider .position5 {
+                left: -50px;
+            }
+
+            .banner-section {
+                min-height: 380px;
+                background-position: -130px -75px;
+            }
+        }
+        @media only screen and (max-width: 414px) {
+            .slider {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="w-full h-full overflow-x-hidden bg-[url('https://roserevenue.com/storage/rosebackground.png')]">
+    <!-- Section 1 -->
+    <section id="topsection" class="relative flex flex-col bg-no-repeat  bg-cover banner-section mb-12 sm:mb-16" style="background-image: url('https://i.ibb.co/LrPqyJB/background-top.png');">
+        <div class="flex flex-col h-full lg:flex-row flex-wrap w-full mx-g-auto lg:auto leading-6 text-left text-black lg:justify-end">
+            <!--                <div class="w-full lg:w-1/3">&nbsp;</div>-->
+            <div class="relative w-full lg:w-9/12 p-4 text-black">
+                <!--<div class="box-content">-->
+                <img class="relative w-11/12 sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-2/5 my-4 mb-10 lg:mt-0 lg:my-10 xl:my-16 ml-auto lg:mx-auto px-4" src="https://i.ibb.co/yYVFjhs/61cf677a0c13b964c2106598.png"/>
+                <div class="w-full slider">
+                    <div class="prev" style="display: none;">&nbsp;</div>
+                    <div class="gallery">
+                        <div class="card position1">
+                            <img src="https://storage.googleapis.com/msgsndr/OHTUsrtuDx9YIEW1fK9X/media/61d39ed7f15aef2bc0653506.png" alt="image"/>
+                        </div>
+                        <div class="card position2">
+                            <img src="https://storage.googleapis.com/msgsndr/OHTUsrtuDx9YIEW1fK9X/media/61d39ed7f15aef4b4b653504.png" alt="image"/>
+                        </div>
+                        <div class="card position3">
+                            <img src="https://storage.googleapis.com/msgsndr/OHTUsrtuDx9YIEW1fK9X/media/61d39ed7f15aef444a653503.png" alt="image"/>
+                        </div>
+                        <div class="card position4">
+                            <img src="https://storage.googleapis.com/msgsndr/OHTUsrtuDx9YIEW1fK9X/media/61d39ed7f15aefaaa1653505.png" alt="image"/>
+                        </div>
+                        <div class="card position5">
+                            <img src="https://storage.googleapis.com/msgsndr/OHTUsrtuDx9YIEW1fK9X/media/61d39ed7f15aef6f75653502.png" alt="image"/>
+                        </div>
+                    </div>
+                    <div class="next" style="display: none;">&nbsp; next</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 6 -->
+    <section id="topspin" class="bg-white mb-12 sm:mb-16">
+        <div class="flex flex-col lg:flex-row items-center justify-center max-w-7xl px-5 lg:px-10 mx-auto">
+            <div class="w-full sm:w-8/12 md:w-5/12 lg:w-1/3 mb-4 lg:mb-0">
+                <img class="w-full m-auto" src="https://i.ibb.co/RSTKH4N/rose-wheel-400.png">
+            </div>
+            <div class="w-full md:w-11/12 lg:w-2/3">
+                <div class="px-0 md:px-0 lg:pl-20">
+                    <h2 class="text-5xl font-black text-gray-900 mx-auto lg:mx-0 w-full md:w-10/12 lg:w-11/12 xl:w-3/4 mb-4 text-center lg:text-left">
+                        Spin to win - gamify your
+                        optins</h2>
+                    <p class="text-lg text-gray-500 w-full lg:w-3/4 text-center mb-4">Use our purpose-built gamified
+                        wpin to win wheel with
+                        your audience to increase your conversions.</p>
+                    <a class="flex items-center px-4 py-2 font-medium text-gray-900 border-2 border-gray-900 rounded-lg sm:w-4/12 xl:w-1/5" href="https://promo.roserevenue.com">
+                        Get Started
+                        <svg class="w-4 h-4 ml-1 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5 -->
+    <section id="topfeature" class="bg-white mb-12 sm:mb-16">
+        <div class="max-w-7xl px-5 lg:px-10 mx-auto sm:text-center">
+            <h2 class="font-bold text-3xl sm:text-4xl lg:text-5xl mb-12 sm:mb-16">All in One Business Success Team at
+                Your
+                Fingertips</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10">
+                <div class="rounded-lg py-5 lg:py-10 px-4 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <img class="w-full m-auto p-2" src="https://i.ibb.co/bW7hjW8/chat-500-nb.png">
+                    <p class="font-bold mt-4">BRANDING</p>
+                    <p class="mt-2 text-sm text-gray-500">Support</p>
+                </div>
+                <div class="rounded-lg py-5 lg:py-10 px-4 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <img class="w-full m-auto p-2" src="https://roserevenue.com/storage/software%20support%20500%20nb.png">
+                    <p class="font-bold mt-4">SOFTWARE</p>
+                    <p class="mt-2 text-sm text-gray-500">Support</p>
+                </div>
+                <div class="rounded-lg py-5 lg:py-10 px-4 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <img class="w-full m-auto p-2" src="https://roserevenue.com/storage/tech%20support%20500%20nb.png">
+                    <p class="font-bold mt-4">INTEGRATION</p>
+                    <p class="mt-2 text-sm text-gray-500">Support</p>
+                </div>
+                <div class="rounded-lg py-5 lg:py-10 px-4 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <img class="w-full m-auto p-2" src="https://roserevenue.com/storage/rose%20wheel%20400.png">
+                    <p class="font-bold mt-4">MARKETING</p>
+                    <p class="mt-2 text-sm text-gray-500">Marketplace</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section full flow -->
+    <section id="midbanner" class="w-full mb-12 sm:mb-16" style="background-color: #00c3cc;">
+        <img class="w-full p-4 lg:px-20 lg:py-10" src="https://roserevenue.com/storage/backbanner.png"/>
+    </section>
+    <!-- Section 1 -->
+    <section class="relative antialiased bg-white">
+        <div id="shelby" class="relative max-w-7xl px-5 lg:px-10 mx-auto shelby">
+            <div class="flex flex-col-reverse lg:flex-row mx-auto">
+                <div class="w-full lg:w-3/5">
+                    <h3 class="text-2xl font-black leading-tight text-black sm:text-md">Hello, I&rsquo;m
+                        Shelby<br/>CEO of R.O.S.E Revenue</h3>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">I help direct sellers and multi-level marketers
+                        &amp; the Solo -Entrepreneur achieve an abundance of leads with a personal touch in half the
+                        time while growing an Authentic relationship with their community so you can live your life with
+                        purpose!</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">After working at Apple with Business Development
+                        and led a Custom Created Workshop designed and grown by me and my team I lead, I discovered the
+                        secrets to authentic sales and how technology can be used to cultivate real connections, was to
+                        connect where consumers want to connect not the other way around!. It wasn&rsquo;t long before I
+                        leveraged over 10+ years of sales skills to forge a successful network marketing career. I felt
+                        on top of the world as I made connections and watched my business thrive!</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">Then life happened.<br/>My daughter got sick and
+                        was diagnosed with a Congenital Heart Condition at 3 Months Old.. She nearly survived Open heart
+                        surgery. Suddenly I was questioning everything I thought mattered.<br/>The sad truth came
+                        crashing down..<br/>I was so busy battling the algorithms on social media, hiring virtual
+                        assistants and competing for prizes, that I had lost sight of why I started this journey in the
+                        first place!I realised that the business I had worked so hard for, had taken over my life.<br/>After
+                        that, I can truly say that the only thing that saved me from going under was automated
+                        tech.<br/>By having a digital rolodex of contacts and clear systems in place at my fingertips
+                        and having the branding team and technology team, I was able to take a break from my business
+                        and delegate tasks without experiencing a dip in revenue, But it wasn&rsquo;t easy. At the time,
+                        there was no all-in-one platform that could handle it all&hellip; not marketing and technology
+                        experts backing me up every step of the way.</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">I was overwhelmed grappling with tech glitches and
+                        software upgrades that never seem to make sense!The tech felt out of touch and misaligned to my
+                        values. Then it dawned on me&hellip;</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">So I poured my heart and soul into building a
+                        software and service Marketing Strategies , but also a Tech Support team that worked with YOU
+                        (not against!) And everything fell into place.</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">Today, we&rsquo;ve transformed hundreds of lives
+                        with this system.</p>
+                    <p class="mt-1 text-md text-gray-500 sm:text-md">That&rsquo;s why I know with unshakable certainty
+                        that YOU have the ability to make life-long personal and professional connections. All you need
+                        is a tool that can help you do that without taking up more of your time. A software that
+                        supports you on your business rather than in it, and empowers you to work smart not hard so you
+                        can focus on what matters most&hellip;</p>
+                    <div class="flex flex-col sm:flex-row pt-4 items-center space-x-1 text-xs text-gray-600 sm:space-x-3">
+                        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4" style="color: #00c3cc;">What Clients are Saying
+                            About</h2>
+                        <span class="flex items-center"> <img class="w-6/12 md:w-8/12 mx-auto" src="https://roserevenue.com/storage/rose%20logo.png"/> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="relative text-right femaleImg">
+            <!--                    <img class="hidden md:block lg:relative md:relative" src="https://roserevenue.com/storage/back%20middle.png"/>-->
+            <img class="w-2/5 ml-auto" src="https://roserevenue.com/storage/shelby.png">
+        </div>
+    </section>
+    <!-- Section 3 -->
+    <section id="midfeature" class="py-10" style="background-color: #ffde59;">
+        <div class="max-w-7xl px-5 lg:px-10 mx-auto">
+            <div class="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12  gap-4 lg:gap-8">
+                <div class="flex flex-col items-center justify-between col-span-4 space-y-4 bg-gray-100 sm:rounded-xl">
+                    <div class="relative h-full w-full" style="padding-top: 56.25%;">
+                        <iframe class="absolute inset-0 w-full h-full z-50" src="https://player.vimeo.com/video/664975631?h=f834c97926" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-between col-span-4 space-y-4 bg-gray-100 sm:rounded-xl">
+                    <div class="relative h-full w-full" style="padding-top: 56.25%;">
+                        <iframe class="absolute inset-0 w-full h-full z-50" src="https://player.vimeo.com/video/666187557?h=a72ba05aee" frameborder="0"></iframe>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-between col-span-4 space-y-4 bg-gray-100 sm:rounded-xl">
+                    <div class="relative h-full w-full" style="padding-top: 56.25%;">
+                        <iframe class="absolute inset-0 w-full h-full z-50" src="https://player.vimeo.com/video/666122576?h=0cf15a5fc3" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4 -->
+    <section id="benefits" class="w-full py-12 sm:py-16 mb-12 sm:mb-16 bg-gray-50">
+        <div class="max-w-7xl px-5 lg:px-10 mx-auto text-center">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="flex justify-start w-full text-5xl font-black md:text-5xl md:text-center md:justify-center">
+                    <span style="color: #00c3cc;">Benefits Spotlight</span>
+                    <img class="w-12 h-12 ml-4" src="https://cdn.devdojo.com/images/october2021/shooting-star.png"/>
+                </h2>
+                <p class="mt-20 text-gray-700">Using this CRM, you will be able to generate leads with just 1 system, 1
+                    app,
+                    and 1 login.<br/>Establish customer relationships, set yourself apart from your competitors,<br/>and
+                    achieve even the most outrageous sales goals faster than you ever imagined.</p>
+                <h3 class="mt-10 text-2xl font-black mb-16">Chat... Connect... Convert...</h3>
+                <div class="grid gap-4 lg:gap-10 mt-8 md:mt-16 grid-cols-1 sm:grid-cols-2">
+                    <div class="text-center relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">VIRTUAL BIZ CARD</h2>
+                        <img class="relative w-full m-auto p-4" src="https://i.ibb.co/bW7hjW8/chat-500-nb.png">
+                        <p class="font-bold mt-4">Quick Chat Bubble</p>
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Give your customers the &zwj;in-person
+                            experience,through
+                            our Exclusive Quick Chat Bubble This allows your audience to begin a conversation
+                            with
+                            you and immediately adds them to your contact list so you don't have to.</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">GAMIFICATION</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/rose%20wheel%20400.png">
+                        <p class="font-bold mt-4">Expand Your Social Media Outreach</p>
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Create a FUN and Effective
+                            Experience for your Future
+                            Customers Incentive Promotions</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">CONVERSATION INBOX</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/all%20feature%20500%20nb.png">
+                        <p class="font-bold mt-4">Central Conversational Inbox</p>
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">It allows you to connect where
+                            your audience lives.
+                        </p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-1 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">FORMS, SURVEYS, QUIZ</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/document%20nb.png">
+                        <p class="font-bold mt-4">Instant Details and Updates</p>
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Give your customers the &zwj;in-person
+                            experience,through
+                            our Exclusive Quick Chat Bubble This allows your audience to begin a conversation
+                            with
+                            you and immediately adds them to your contact list so you don't have to.</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">SMART SCHEDULING</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/appointments%20nb.png">
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">For many businesses, the first
+                            introduction to automation
+                            is
+                            using a calendar scheduling tool. Allow your prospects and clients to self-book with you and
+                            receive automated confirmation and reminder texts, emails, and voice mails from you.</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-1 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">INSTANT REMINDERS/FOLLOWUP</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/document%20nb.png">
+                        <p class="font-bold mt-4 w-full mx-auto lg:w-4/5 uppercase">takes the customized personal
+                            information need from clients and
+                            instantly
+                            will update the clients details on thier lead card and<span class="font-bold">no more manual copy and pasting to one platform to another and the best part is they are fully customizable to match your appointments and brand</span>
+                        </p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">TEXT TO PAY</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/payments%20500%20nb.png">
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Tired of trying to send invoices
+                            to clients only to have
+                            them
+                            land in their spam folder or never get paid..? With Text to pay, you can generate payment
+                            links
+                            directly for your clients and shoot it to them in a text. Simple!</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">BULK LEAD TRANSFER</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/network%20500%20nb.png">
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Ever had to Send your Sales Team.
+                            or your leaders Leads
+                            form
+                            an Event or have over spill of leads or just bc your title changed you can batch leads with
+                            a
+                            simple Push Transfer.</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">FUNNELS and WEBSITES</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/website%20nb.png">
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">Having a website is essential, but
+                            creating a funnel page
+                            designed directly with your offer (product or service) in mind will increase conversion and
+                            bolster up your bottom line. Easily accept payments, schedule appointments, and so much more
+                            through our funnel builder.</p>
+                    </div>
+                    <div class="relative p-4 md:p-10 space-y-2 border border-gray-200 rounded-lg">
+                        <h2 class="text-xl md:text-2xl font-black text-gray-900">COURSES and MEMBERSHIPS</h2>
+                        <img class="relative w-full m-auto p-4" src="https://roserevenue.com/storage/lesson%20nb.png">
+                        <p class="mt-2 text-sm text-gray-500 w-full mx-auto lg:w-4/5">If you're looking to sell a
+                            membership site, perhaps a
+                            course
+                            or onboarding series for your customers, then our Membership platform is perfect for you!
+                            Integrated directly into your account, easily grant your clients and customers access to
+                            your
+                            membership site.</p>
+                    </div>
+                </div>
+                <div class="w-full mt-10 mb-2 text-center">
+                    <a class="px-8 py-4 sm:w-auto w-full text-center text-base font-medium inline-block rounded text-white" style="background-color: #fedc22;" href="#_">YES!
+                        I'm Ready To Start Now!</a></div>
+            </div>
+        </div>
+    </section>
+    <!-- PRICING -->
+    <section id="bottomfeature" class="text-gray-900 bg-white mb-16 lg:mb-12">
+        <div class="mx-auto max-w-7xl px-5 lg:px-10">
+            <div class="leading-7 text-center text-gray-900">
+                <h1 class="font-['Montserrat'] box-border mb-4 text-2xl font-extrabold text-black md:text-3xl lg:text-4xl">
+                    White Glove Concierge SERVICE</h1>
+                <p class="font-['Lato'] mb-8 text-2xl text-gray-900">No Problem we
+                    Have a Simple Step by Step<br/>Walk through Guide along with a ting One to One
+                    <span class="font-bold">Success Coach &amp; Marketing </span> To Help!</p>
+                <p class="font-['Lato'] box-border mb-8 text-2xl text-gray-900">ONE Time System
+                    Activation FEE of $75 Normally $299<br/>15 % to 20% Affiliate Incentive</p>
+                <img class="w-full relative" src="https://roserevenue.com/storage/rose%20pricing.png"/></div>
+        </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section id="bottomblocks" class="mb-12 sm:mb-16 bg-white">
+        <div class="max-w-7xl px-5 lg:px-10 mx-auto text-center">
+            <div class="px-4 sm:px-6 md:px-6 lg:px-8">
+                <div class="text-center text-gray-900">
+                    <h1 class="font-['Montserrat'] m-0 text-2xl font-extrabold text-black border-solid md:text-3xl lg:text-4xl">
+                        Take Control of your Connections &amp; Messaging<br/>Communicate with your Clients the way they
+                        like to Connect</h1>
+                    <p class="font-['Lato'] box-border pb-8 text-2xl text-gray-900 border-solid md:text-2xl">Learn More
+                        about Maximizing Your Messaging<br/>Dollar with Your Success Onboarding Coach!</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-10 my-12 sm:my-16">
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">LIVE, RECORDED</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 3h5m0 0v5m0-5l-6 6M5 3a2 2 0 00-2 2v1c0 8.284 6.716 15 15 15h1a2 2 0 002-2v-3.28a1 1 0 00-.684-.948l-4.493-1.498a1 1 0 00-1.21.502l-1.13 2.257a11.042 11.042 0 01-5.516-5.517l2.257-1.128a1 1 0 00.502-1.21L9.228 3.683A1 1 0 008.279 3H5z"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">CALLING</p>
+                </div>
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">SMS MESSAGE</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">TEXT and LINK</p>
+                </div>
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">MMS MESSAGE</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">TEXT and IMAGE</p>
+                </div>
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">EMAILING</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">EMAILS</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10 my-12 sm:my-16">
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">FACEBOOK</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="-1 0 27 24" stroke="currentColor">
+                        <title>Facebook</title>
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">DM UNLIMITED</p>
+                </div>
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">INSTAGRAM</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="-1 0 27 24" stroke="currentColor">
+                        <title>Instagram</title>
+                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-500">DM UNLIMITED</p>
+                </div>
+                <div class="rounded-lg py-10 flex flex-col items-center justify-center shadow-lg border border-gray-100">
+                    <p class="font-bold mt-4">WHATSAPP</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24" fill="none" viewbox="-1 0 27 24" stroke="currentColor">
+                        <title>WhatsApp</title>
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"></path>
+                    </svg>
+                    <p class="mt2 text-sm text-gray-500">COMING SOON</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.7.1/cdn.js"></script>
+<script src="https://assets.website-files.com/615b454469eecb1b6aee101b/js/ooda-pro.f70ae6880.js"></script>
+<script>
+    let timer = 5; //seconds
+
+    // Card interface
+    class Card {
+        constructor(node, position) {
+            this.node = node;
+            this.position = position;
+        }
+
+        nextPosition() {
+            let nextPosition = 1;
+
+            if (this.position != 5) {
+                nextPosition = this.position + 1;
+            }
+
+            return nextPosition;
+        }
+
+        prevPosition() {
+            let prevPosition = 5;
+
+            if (this.position != 1) {
+                prevPosition = this.position - 1;
+            }
+
+            return prevPosition;
+        }
+
+        moveNext() {
+            this.node.classList.replace(
+                `position${this.position}`,
+                `position${this.nextPosition()}`
+            );
+
+            this.position = this.nextPosition();
+        }
+
+        movePrev() {
+            this.node.classList.replace(
+                `position${this.position}`,
+                `position${this.prevPosition()}`
+            );
+
+            this.position = this.prevPosition();
+        }
+
+        autoScroll() {
+            this.node.classList.replace(
+                `position${this.position}`,
+                `position${this.nextPosition()}`
+            );
+
+            this.position = this.nextPosition();
+        }
+    }
+
+    // Initializations
+    const [prev, next] = document.querySelectorAll("i");
+    const gallery = document.querySelector(".gallery");
+    const cards = [];
+    let start;
+
+    // Instantiate cards and populate cards array
+    document.querySelectorAll(".card").forEach((e, pos = 0) => {
+        pos += 1;
+        cards.push(new Card(e, pos));
+    });
+
+    // next.addEventListener("click", () => {
+    //     cards.forEach((c) => {
+    //         c.moveNext();
+    //     });
+    // });
+    //
+    // prev.addEventListener("click", () => {
+    //     cards.forEach((c) => {
+    //         c.movePrev();
+    //     });
+    // });
+
+    // Handle slide events
+    gallery.addEventListener("touchstart", (s) => {
+        start = s.targetTouches[0].screenX;
+    });
+
+    gallery.addEventListener("touchend", (e) => {
+        let end = e.changedTouches[0].screenX;
+        const range = Math.abs(start - end);
+
+        if (range > 30) {
+            if (start < end) {
+                cards.forEach((c) => {
+                    c.moveNext();
+                });
+            }
+
+            if (start > end) {
+                cards.forEach((c) => {
+                    c.movePrev();
+                });
+            }
+        }
+    });
+
+    setInterval(function () {
+        cards.forEach((c) => {
+            c.autoScroll();
+        });
+    }, timer * 1000);
+</script>
+</body>
+</html>
